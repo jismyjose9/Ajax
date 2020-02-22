@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <style>
+       
+      a:link
+        {
+            text-decoration: none;
+        }  
+       #nav
+       {
+           margin-left: 1000px;
+        font-size: x-large;
+        font-family: fantasy;
+       }
+    
+    .current{
+        color: red;
+    }
+    nav a:hover{
+        color: red;
+    }
+        
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class ="header">
+    <img src="Image/maker-logo.png",alt ="logo image">
+    <nav id= "nav">
+    <a href="homeajax.html" class="current">HOME</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a href="ajax22.html">ROUTE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a href="ajax23.html">TOYS</a>
+    </nav>
+    <hr size="3" background color="black">
+    
+</div>
+<div id="div1">
+
+</div>
+    
+
+</body>
+
+
+<script>
+    $('document').ready(function()
+    {
+$('#div1').load("homeajax.html")
+    
+    $('#nav a').click(function(e){
+    e.preventDefault();
+    $.ajax({
+        type: "GET",
+        url: this.href,
+        data: { },
+        success: function(data){
+            $('#div1').html(data);
+        }
+    });
+    $('#nav a').removeClass('current');
+    $(this).addClass('current');
+
+    });
+});
+</script>
+
+
+</html>

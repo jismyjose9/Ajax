@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <style>
+       
+      a:link
+        {
+            text-decoration: none;
+        }  
+       nav
+       {
+           margin-left: 1000px;
+        font-size: x-large;
+        font-family: fantasy;
+       }
+       #container
+    {
+        display: grid;
+        grid-template-columns: 29% 29% 29%;
+        margin-left: 100px;
+    }
+    .current{
+        color: red;
+    }
+    nav a:hover{
+        color: red;
+    }
+        
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class ="header">
+    <img src="Image/maker-logo.png",alt ="logo image">
+    <nav>
+    <a href="ajax1.html" class="current">HOME</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a href="ajax2.html">ROUTE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a href="ajax3.html">TOYS</a>
+    </nav>
+    <hr size="3" background color="black">
+    
+</div>
+    <div id="content">
+        <h1>Fifteen tons of fun!</h1>
+        <div id="container">
+              
+        <div class="first">
+            <img src="Image/home1.jpg">
+            <p>Buses may be used for scheduled bus transport the<br>scheduled coach transport, school transport private<br> The most common type is the single-deck rigid bus<br> with larger loads carried by double-decker and buses<br>and smaller loads carried by midibuses.</p>
+        </div>
+        <div class="second">
+            <img src="Image/home2.jpg">
+            <p>Buses may be used for scheduled bus transport the<br>scheduled coach transport, school transport private<br> The most common type is the single-deck rigid bus<br> with larger loads carried by double-decker and buses<br>and smaller loads carried by midibuses.</p>
+        </div>
+        <div class="third">
+            <img src="Image/home3.jpg">
+            <p>Buses may be used for scheduled bus transport the<br>scheduled coach transport, school transport private<br> The most common type is the single-deck rigid bus<br> with larger loads carried by double-decker and buses<br>and smaller loads carried by midibuses.</p>
+        </div>
+        </div>
+    </div>
+    
+
+
+</body>
+
+
+<script>
+    
+    $('nav a').on('click',function(e){
+    e.preventDefault();
+    var url=this.href;
+
+    $('nav a').removeClass('current');
+    $(this).addClass('current');
+
+    $('#container').remove();
+    $('#content').load(url + ' #container').hide().fadeIn('slow');
+});
+
+</script>
+
+
+</html>

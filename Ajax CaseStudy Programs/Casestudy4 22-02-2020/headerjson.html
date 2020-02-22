@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    #container
+    {
+      display: flex;
+    }
+  </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class ="header">
+    <img src="Image/maker-logo.png",alt ="logo image">
+    <hr size="3" background color="black">
+    <h1>The bus stops here.</h1>
+    <div id="container">
+        
+    </div>
+    </div>
+
+   
+</body>
+<script>
+
+var xhr=new XMLHttpRequest();
+         xhr.open("GET","json1.json",true);
+        xhr.send(null);
+        xhr.onload=function()
+        {
+            if(xhr.status==200)
+            {
+                var info=JSON.parse(xhr.responseText);
+                var html_con="";
+                for(var i=0;i<info.event.length;i++)
+                {
+                    html_con+="<img src='"+info.event[i].map+"'>"+"\n";
+                    html_con+="<p>"+info.event[i].location+"</p>"+"\n";
+                    html_con+="<p>"+info.event[i].date+"</p>"+"\n";
+                
+                document.getElementById("container").innerHTML=html_con;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+</script>
+</html>
